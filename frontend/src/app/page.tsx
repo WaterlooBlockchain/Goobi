@@ -7,7 +7,7 @@ import Events from "@/components/Events";
 
 export default function Home() {
   return (
-    <main className="w-full h-screen bg-white">
+    <main className="w-full h-screen bg-black m-auto">
     <Header />
     <div className="container mx-auto">
     {/* Introduction of the token */}
