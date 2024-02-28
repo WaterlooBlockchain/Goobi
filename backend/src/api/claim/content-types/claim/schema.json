@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "claims",
+  "info": {
+    "singularName": "claim",
+    "pluralName": "claims",
+    "displayName": "claim"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "claimed_emails": {
+      "displayName": "claimed",
+      "type": "component",
+      "repeatable": false,
+      "component": "emails.claimed"
+    }
+  }
+}

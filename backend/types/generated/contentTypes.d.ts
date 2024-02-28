@@ -362,6 +362,35 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiClaimClaim extends Schema.CollectionType {
+  collectionName: 'claims';
+  info: {
+    singularName: 'claim';
+    pluralName: 'claims';
+    displayName: 'claim';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    claimed_emails: Attribute.Component<'emails.claimed'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::claim.claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::claim.claim',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Schema.CollectionType {
   collectionName: 'events';
   info: {
@@ -866,6 +895,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::claim.claim': ApiClaimClaim;
       'api::event.event': ApiEventEvent;
       'api::merch.merch': ApiMerchMerch;
       'plugin::upload.file': PluginUploadFile;

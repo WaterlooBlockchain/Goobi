@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_emails_claimeds",
+  "info": {
+    "displayName": "claimed",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {}
+}
