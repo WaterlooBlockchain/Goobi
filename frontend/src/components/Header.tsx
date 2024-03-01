@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import mrgoose from "../../public/mr-goose.jpg"
-import merch from "./Merch";
+import Merch from '@/components/Merch';
 
 const inter = Inter({ subsets: ["latin"] });
 
