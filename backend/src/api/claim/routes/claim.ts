@@ -7,7 +7,7 @@ export default {
             path: '/claim/initClaim',
             handler: 'claim.initClaim',
             config: {
-                policies: ['token-gating'],
+                policies: [],
             }
         },
     ],
