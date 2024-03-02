@@ -42,9 +42,7 @@ export default function Hero() {
               <button className="w-36 lg:w-64 h-12 bg-gradient-to-b from-yellow-200 to-yellow-500 hover:bg-yellow-500 text-black font-semibold text-sm lg:text-lg rounded-full transition duration-300 ease-in-out" onClick={() => {scrollFunction()}}>Claim $MRGOOSE</button>
           </div>
           <div>
-            <Link href="/merch" passHref>
-              <button className="w-36 lg:w-64 h-12 bg-transparent border border-white hover:bg-yellow-500 text-white font-semibold rounded-full text-sm lg:text-lg transition duration-300 ease-in-out">Get Merch</button>
-            </Link>
+            <button className="w-36 lg:w-64 h-12 bg-transparent border border-white hover:bg-yellow-500 text-white font-semibold rounded-full text-sm lg:text-lg transition duration-300 ease-in-out">Get Merch</button>
           </div>
         </div>
         <Image src={gr3} width={300} height={300} alt='gradient1' className="absolute w-64 lg:w-[400px] right-0 bg-blend-overlay opacity-50 inset-0 order-last -z-2 " />

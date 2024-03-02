@@ -10,8 +10,7 @@ import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
 import { SolflareWalletAdapter } from "@solana/wallet-adapter-solflare";
 
 export default function App({ Component, pageProps}: AppProps) {
-    const network = 'https://nextjs.org/docs/messages/next-image-upgrade-to-13';
-    console.log(network)
+    const network = '';
     const endpoint = useMemo(() => network, [network]);
     console.log(endpoint)
 
