@@ -19,6 +19,7 @@ export default function Send({targetAddress}: SendProps) {
 
         tx.feePayer = source.publicKey;
         tx.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
+
         console.log(toTokenAddress.toString());
     }
 

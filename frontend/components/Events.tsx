@@ -1,5 +1,5 @@
 // Events.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Strapi from 'strapi-sdk-js';
 import Link from 'next/link';
 
@@ -11,21 +11,15 @@ const EventCard: React.FC<{ event: any }> = ({ event }) => (
   </div>
 );
 
-async function Events() {
-  const strapi = new Strapi({
-    url: process.env.BACKEND_URL,
-    prefix: "/api",
-    store: {
-      key: "strapi_jwt",
-      useLocalStorage: false,
-      cookieOptions: { path: "/" },
-    },
-    axiosOptions: {},
-  })
-
-
-  const {data: events}:any = await strapi.find("events");
-
+function Events() {
+  const [events, setEvents] = useState([])
+  useEffect(() => {
+    async() => {
+      const events = await (await fetch('/api/getMerch')).json();
+      setEvents(events);
+    }
+  }, []);
+  
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-4 text-yellow-400">Shop Merchandise</h1>

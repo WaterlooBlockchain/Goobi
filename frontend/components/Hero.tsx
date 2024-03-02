@@ -8,10 +8,24 @@ import gr3 from '../public/gradient3.png';
 
 
 export default function Hero() {
+  function findPosition(obj: any) {
+    var currenttop = 0;
+    if (obj.offsetParent) {
+      do {
+        currenttop += obj.offsetTop;
+      } while ((obj = obj.offsetParent));
+      return currenttop;
+    }
+  }
+
+  function scrollFunction() {
+    window.scroll(0, findPosition(document.getElementById("claim"))! -48);
+  }
+
   return (
-    <div className="relative flex flex-row flex-wrap justify-center">
+    <div className="relative flex flex-row flex-wrap justify-center gap-16">
       {/* Black top part */}
-      <div className="bg-black text-white py-12 px-8 flex flex-row justify-between flex-wrap">
+      <div className="w-full relative bg-black text-white py-12 px-8 lg:px-64 flex flex-row justify-between flex-wrap">
 
         {/* Introducing $MRGOOSE text */}
           <div className="w-full">
@@ -21,13 +35,11 @@ export default function Hero() {
             </div>
           </div>
           {/* A token for Waterloo Blockchain text */}
-          <p className="w-full text-2xl text-4xl font-semibold mb-4 italic bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">Thank you Mr. Goose</p>
+          <p className="w-full text-2xl lg:text-4xl font-semibold mb-4 italic bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">Thank you Mr. Goose</p>
          {/* Buttons */}
          <div className="w-full flex flex-col justify-end items-end">
           <div className="mb-4">
-            <Link href="#email" passHref>
-              <button className="w-36 lg:w-64 h-12 bg-gradient-to-b from-yellow-200 to-yellow-500 hover:bg-yellow-500 text-black font-semibold text-sm lg:text-lg rounded-full transition duration-300 ease-in-out">Claim $MRGOOSE</button>
-            </Link>
+              <button className="w-36 lg:w-64 h-12 bg-gradient-to-b from-yellow-200 to-yellow-500 hover:bg-yellow-500 text-black font-semibold text-sm lg:text-lg rounded-full transition duration-300 ease-in-out" onClick={() => {scrollFunction()}}>Claim $MRGOOSE</button>
           </div>
           <div>
             <Link href="/merch" passHref>
@@ -35,11 +47,11 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-        <Image src={gr3} width={300} height={300} alt='gradient1' className="object-left-top absolute bg-blend-overlay inset-0 order-last -top-8 left-32 -z-2 lg:-right-20 " />
+        <Image src={gr3} width={300} height={300} alt='gradient1' className="absolute w-64 lg:w-[400px] right-0 bg-blend-overlay opacity-50 inset-0 order-last -z-2 " />
 
       </div>
         {/* Mr. Goose image */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center">
+        <div className="w-full lg:w-1/2 flex flex-col items-center" id='claim' >
           <div className="w-32 h-32 rounded-full overflow-hidden relative">
             <Image src={mrgoose} alt="Mr. Goose" layout="fill" objectFit="cover" />
           </div>

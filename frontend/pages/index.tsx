@@ -5,7 +5,6 @@ import MerchPreview from "../components/MerchPreview";
 import EventsPreview from "../components/EventsPreview";
 
 export default function Home() {
-  console
   return (
     <main className="w-full min-h-screen bg-black">
       <Header />

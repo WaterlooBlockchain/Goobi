@@ -1,6 +1,5 @@
 // Merch.tsx
-import React from 'react';
-import Strapi from 'strapi-sdk-js';
+import React, { useEffect, useState } from 'react';
 
 const ProductCard: React.FC<{ product: any }> = ({ product }) => (
   <div className="border bg-white border-gray-200 p-4 rounded-md">
@@ -10,26 +9,28 @@ const ProductCard: React.FC<{ product: any }> = ({ product }) => (
   </div>
 );
 
-async function Merch() {
-  const strapi = new Strapi({
-    url: process.env.BACKEND_URL,
-    prefix: "/api",
-    store: {
-      key: "strapi_jwt",
-      useLocalStorage: false,
-      cookieOptions: { path: "/" },
-    },
-    axiosOptions: {},
-  })
+function Merch() {
+  const [merch, setMerch] = useState<any>();
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/api/getMerch');
+      const data = await response.json()
+      setMerch(data);
+      console.log(data);
+    };
+  
+    fetchData();
+  }, []);
+  
 
-
-  const {data: products}: any = await strapi.find("merches");
-
+  console.log(merch)
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-4 text-yellow-400">Shop Merchandise</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        { products.map((product: any) => <ProductCard key={product.id} product={product.attributes} />)
+        { 
+        merch?.map((product: any) => <ProductCard key={product.id} product={product.attributes} />)
         }
       </div>
     </div>
