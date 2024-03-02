@@ -25,7 +25,7 @@ export default function Email() {
 
     return (
         <section className="py-8 m-auto">
-        <h2 className="text-3xl font-bold mb-4 text-yellow-400">Submit Email to Claim</h2>
+        <h2 className="text-center text-3xl font-bold mb-4 text-yellow-400">Submit Email to Claim</h2>
         <div className="flex mx-8">
         <input
         type="email"

@@ -11,8 +11,6 @@ export default function Home() {
       <div className="container mx-auto px-auto py-12"> {/* Adjust padding */}
         {/* Introduction of the token */}
         <Hero/>
-        {/* Submitting email to claim */}
-        <Email/>
         {/* Preview of merchandises */}
         <MerchPreview/>
         {/* Preview of events */}
