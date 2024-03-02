@@ -13,10 +13,11 @@
     "next": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "strapi": "^3.6.11",
     "strapi-sdk-js": "^2.3.3"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.11.24",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
