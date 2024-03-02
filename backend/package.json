@@ -9,7 +9,6 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
     "@coral-xyz/anchor": "^0.29.0",
     "@mailchimp/mailchimp_transactional": "^1.0.59",
@@ -27,6 +26,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
+    "strapi": "^3.6.11",
     "styled-components": "5.3.3"
   },
   "author": {

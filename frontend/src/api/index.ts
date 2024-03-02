@@ -5,3 +5,8 @@ export async function getMerch() {
 
     return result;
 }
+
+export async function getEvent() {
+    const result = await axios.get('https://mr-goose-447tw.ondigitalocean.app/events');
+    return result;
+}
