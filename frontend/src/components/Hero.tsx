@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <div className="relative">
+    <div className="relative flex flex-row">
       {/* Black top part */}
-      <div className="bg-black text-white py-12 px-8 flex items-center justify-between">
+      <div className="bg-black text-white py-12 px-8 flex flex-col justify-between">
         {/* Introducing $MRGOOSE text */}
           <div className="w-1/2">
             <div className="text-4xl font-bold mb-4 relative flex flex-col">
