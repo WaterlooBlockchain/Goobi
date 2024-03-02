@@ -1,26 +1,27 @@
 "use client";
 
+import { useCallback } from "react";
+
 export default function Email() {
 
-    const handleSubmit = async () => {
+    const handleSubmit = useCallback(async () => {
         const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
         const email = emailInput ? emailInput.value : () => { alert('Empty email!'); return;} ;
-        const res = await fetch('/api/email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email }),
-        });
-        if (res.status === 200) {
-            alert('Email submitted successfully');
-        } else if (res.status === 400) {
-            alert('Email already submitted');
-        } else {
-            alert('Internal server error');
+        console.log(email)
+        try {
+            const res = await fetch('/api/email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+            console.log(res)
+        }catch(err: any){
+            console.log(err.toString())
         }
 
-    };
+    }, []);
 
 
     return (

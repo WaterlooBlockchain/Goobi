@@ -24,7 +24,7 @@ async function Events() {
   })
 
 
-  const {data: events}: any = await strapi.find("events");
+  const {data: events}:any = await strapi.find("events");
 
   return (
     <div className="container mx-auto py-8">

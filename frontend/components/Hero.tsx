@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import mrgoose from '../../public/mr-goose.jpg';
+import mrgoose from '../public/mr-goose.jpg';
 import Link from 'next/link';
 import Email from './Email';
-import gr1 from '../../public/gradient1.png';
-import gr2 from '../../public/gradient2.png';
-import gr3 from '../../public/gradient3.png';
+import gr1 from '../public/gradient1.png';
+import gr2 from '../public/gradient2.png';
+import gr3 from '../public/gradient3.png';
 
 
 export default function Hero() {

@@ -1,8 +1,8 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Email from "@/components/Email";
-import MerchPreview from "@/components/MerchPreview";
-import EventsPreview from "@/components/EventsPreview";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Email from "../components/Email";
+import MerchPreview from "../components/MerchPreview";
+import EventsPreview from "../components/EventsPreview";
 
 export default function Home() {
   console
