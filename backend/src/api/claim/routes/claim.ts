@@ -10,5 +10,13 @@ export default {
                 policies: [],
             }
         },
+        {
+            method: 'POST',
+            path: '/claim/burn',
+            handler: 'claim.burn',
+            config: {
+                policies: [],
+            }
+        },
     ],
 }

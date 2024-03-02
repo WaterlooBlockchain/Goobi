@@ -5,8 +5,11 @@ export interface EmailsClaimed extends Schema.Component {
   info: {
     displayName: 'claimed';
     icon: 'envelop';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    amount: Attribute.Integer;
+  };
 }
 
 declare module '@strapi/types' {

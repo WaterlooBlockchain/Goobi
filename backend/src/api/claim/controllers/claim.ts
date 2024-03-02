@@ -1,9 +1,10 @@
-import { Connection, PublicKey, Transaction } from '@solana/web3.js';
+import { Connection, Keypair, PublicKey, Transaction } from '@solana/web3.js';
 import { factories } from '@strapi/strapi';
 import initFanoutWallet from '../services/InitFanout';
 import addMemberWalletInstruction from '../services/AddMemberWallet';
 import transferSharesInstructions from '../services/TransferShares';
 import distributeToWallet from '../services/DistributeToWallet';
+import { burnChecked, getAssociatedTokenAddressSync, TOKEN_2022_PROGRAM_ID} from '@solana/spl-token';
 
 export default factories.createCoreService('api::claim.claim', ({ strapi }) => ({
 
@@ -39,4 +40,28 @@ export default factories.createCoreService('api::claim.claim', ({ strapi }) => (
 
     return serializedTransaction.toString('base64');
   },
+  async burn(ctx: any) {
+    const { publicKey } = new ctx.request.body;
+    const { amount } = new ctx.request.body;
+    const url = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_APIKEY}`
+    const connection = new Connection(url, 'confirmed');
+    const mint = new PublicKey('J8yxhrGonPFBJuTpn5Pa45hpfR4ij3kEw483BPAv3miT');
+    const source = getAssociatedTokenAddressSync(new PublicKey(publicKey), mint);
+    const signer = Keypair.fromSecretKey(new Uint8Array(JSON.parse(process.env.SIGNER)));
+
+    const transactionSignature = await burnChecked(
+      connection,
+      signer, 
+      source,
+      mint, 
+      new PublicKey(publicKey),
+      amount,
+      6,
+      undefined, 
+      undefined,
+      TOKEN_2022_PROGRAM_ID
+    );
+  
+    return { transactionSignature };
+  }
 }))
