@@ -1,3 +1,4 @@
+**Introduction:**
 In the heart of Waterloo's vibrant culture lies Mr. Goose, an iconic symbol cherished by all. Waterloo Blockchain proudly introduces **$MRGOOSE**, a token system designed to reward event participation and offer exclusive merchandise opportunities. 
 
 Attendees receive $MRGOOSE tokens directly into their wallets by scanning QR codes at events. These tokens represent a shared journey within the Waterloo community and can be redeemed for Waterloo Blockchain merchandise.
