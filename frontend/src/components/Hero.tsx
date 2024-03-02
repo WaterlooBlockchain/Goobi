@@ -2,12 +2,17 @@ import Image from 'next/image';
 import mrgoose from '../../public/mr-goose.jpg';
 import Link from 'next/link';
 import Email from './Email';
+import gr1 from '../../public/gradient1.png';
+import gr2 from '../../public/gradient2.png';
+import gr3 from '../../public/gradient3.png';
+
 
 export default function Hero() {
   return (
     <div className="relative flex flex-row flex-wrap justify-center">
       {/* Black top part */}
       <div className="bg-black text-white py-12 px-8 flex flex-row justify-between flex-wrap">
+
         {/* Introducing $MRGOOSE text */}
           <div className="w-full">
             <div className="text-4xl lg:text-6xl font-bold mb-4 relative flex flex-col">
@@ -15,7 +20,6 @@ export default function Hero() {
               <h1 className="text-6xl lg:text-8xl bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">$MRGOOSE</h1>
             </div>
           </div>
-
           {/* A token for Waterloo Blockchain text */}
           <p className="w-full text-2xl text-4xl font-semibold mb-4 italic bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">Thank you Mr. Goose</p>
          {/* Buttons */}
@@ -31,6 +35,8 @@ export default function Hero() {
             </Link>
           </div>
         </div>
+        <Image src={gr3} width={300} height={300} alt='gradient1' className="object-left-top absolute bg-blend-overlay inset-0 order-last -top-8 left-32 -z-2 lg:-right-20 " />
+
       </div>
         {/* Mr. Goose image */}
         <div className="w-full lg:w-1/2 flex flex-col items-center">
@@ -40,6 +46,8 @@ export default function Hero() {
           {/* Submitting email to claim */}
           <Email/>
         </div>
+
+
       {/* Yellow gradient bottom part */}
       <div className="w-full flex flex-col lg:flex-row gap-8 justify-evenly items-center bg-gradient-to-b from-yellow-200 to-yellow-500 text-black py-12 px-24">
         {/* Text groups */}
