@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen bg-black">
       <Header />
-      <div className="container mx-auto px-20"> {/* Adjust padding */}
+      <div className="container mx-auto px-auto py-12"> {/* Adjust padding */}
         {/* Introduction of the token */}
         <Hero/>
         {/* Submitting email to claim */}
