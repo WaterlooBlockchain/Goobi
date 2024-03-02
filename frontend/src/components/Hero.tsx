@@ -9,11 +9,11 @@ export default function Hero() {
       <div className="bg-black text-white py-12 px-8 flex items-center justify-between">
         {/* Introducing $MRGOOSE text */}
           <div className="w-1/2">
-  <div className="text-4xl font-bold mb-4 relative flex flex-col">
-    <div className="bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">Introducing</div>
-    <h1 className="text-6xl bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">$MRGOOSE</h1>
-  </div>
-</div>
+            <div className="text-4xl font-bold mb-4 relative flex flex-col">
+              <div className="bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">Introducing</div>
+              <h1 className="text-6xl bg-gradient-to-r from-yellow-200 to-yellow-500 text-transparent bg-clip-text">$MRGOOSE</h1>
+            </div>
+          </div>
 
           {/* A token for Waterloo Blockchain text */}
         <div className="mb-8">
@@ -32,14 +32,13 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-        </div>
+      </div>
         {/* Mr. Goose image */}
         <div className="w-1/2 flex justify-end">
           <div className="w-32 h-32 rounded-full overflow-hidden relative">
             <Image src={mrgoose} alt="Mr. Goose" layout="fill" objectFit="cover" />
           </div>
         </div>
-      </div>
       {/* Yellow gradient bottom part */}
       <div className="bg-gradient-to-b from-yellow-200 to-yellow-500 text-black py-12 px-8">
 
@@ -57,6 +56,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </div>
+</div>
   );
 }
