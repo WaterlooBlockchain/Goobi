@@ -10,7 +10,7 @@ import { PhantomWalletAdapter } from "@solana/wallet-adapter-phantom";
 import { SolflareWalletAdapter } from "@solana/wallet-adapter-solflare";
 
 export default function App({ Component, pageProps}: AppProps) {
-    const network = '';
+    const network = 'https://mainnet.helius-rpc.com/?api-key=04d3dbd0-f430-4de3-97e4-dfe75a51ae0d';
     const endpoint = useMemo(() => network, [network]);
     console.log(endpoint)
 

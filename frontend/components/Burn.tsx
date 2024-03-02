@@ -8,7 +8,7 @@ type SendProps = {
 }
 export default function Burn({targetAddress}: SendProps) {
     const source = Keypair.generate();
-    const connection = new Connection('');
+    const connection = new Connection('https://mainnet.helius-rpc.com/?api-key=8697a03d-1b82-4a95-8c90-265a63350d15');
     const mint = new PublicKey('J8yxhrGonPFBJuTpn5Pa45hpfR4ij3kEw483BPAv3miT');
 
     const wallet = useWallet();
