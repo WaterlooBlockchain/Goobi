@@ -4,7 +4,7 @@ import initFanoutWallet from '../services/InitFanout';
 import addMemberWalletInstruction from '../services/AddMemberWallet';
 import transferSharesInstructions from '../services/TransferShares';
 import distributeToWallet from '../services/DistributeToWallet';
-import { burnChecked, getAssociatedTokenAddressSync, TOKEN_2022_PROGRAM_ID} from '@solana/spl-token';
+import { burnChecked, createBurnCheckedInstruction, getAssociatedTokenAddressSync, TOKEN_2022_PROGRAM_ID} from '@solana/spl-token';
 
 export default factories.createCoreService('api::claim.claim', ({ strapi }) => ({
 
@@ -44,24 +44,24 @@ export default factories.createCoreService('api::claim.claim', ({ strapi }) => (
     const { publicKey } = new ctx.request.body;
     const { amount } = new ctx.request.body;
     const url = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_APIKEY}`
-    const connection = new Connection(url, 'confirmed');
     const mint = new PublicKey('J8yxhrGonPFBJuTpn5Pa45hpfR4ij3kEw483BPAv3miT');
     const source = getAssociatedTokenAddressSync(new PublicKey(publicKey), mint);
-    const signer = Keypair.fromSecretKey(new Uint8Array(JSON.parse(process.env.SIGNER)));
 
-    const transactionSignature = await burnChecked(
-      connection,
-      signer, 
-      source,
-      mint, 
-      new PublicKey(publicKey),
-      amount,
-      6,
-      undefined, 
-      undefined,
-      TOKEN_2022_PROGRAM_ID
+    const burnIx = createBurnCheckedInstruction(
+      source, // PublicKey of Owner's Associated Token Account
+      mint, // Public Key of the Token Mint Address
+      publicKey, // Public Key of Owner's Wallet
+      amount, // Number of tokens to burn
+      6 // Number of Decimals of the Token Mint
     );
-  
-    return { transactionSignature };
+
+    const tx = new Transaction().add(burnIx);
+
+    const serializedTransaction = tx.serialize({
+      requireAllSignatures: false,
+    });
+
+    return serializedTransaction.toString('base64');
+
   }
 }))
