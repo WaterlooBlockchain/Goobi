@@ -1,22 +1,23 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 export default function Email() {
+    const [statusText, setStatusText] = useState('');
 
     const handleSubmit = useCallback(async () => {
         const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
         const email = emailInput ? emailInput.value : () => { alert('Empty email!'); return;} ;
-        console.log(email)
         try {
-            const res = await fetch('/api/email', {
+            const res = await fetch('/api/getVerified', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email }),
             });
-            console.log(res)
+            console.log(res);
+            setStatusText(res.statusText);
         }catch(err: any){
             console.log(err.toString())
         }
@@ -39,6 +40,7 @@ export default function Email() {
         Submit
       </button>
         </div>
+        <p className="text-yellow-400 text-center py-2">{statusText}</p>
       </section>
     )
 }
