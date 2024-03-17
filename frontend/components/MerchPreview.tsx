@@ -4,8 +4,7 @@ import Merch from './Merch'; // Import the Merch component
 
 const MerchPreview: React.FC = () => {
   return (
-    <section className="py-8">
-      <h2 className="text-3xl font-bold mb-4 text-yellow-400"></h2>
+    <section className="py-24 px-8 lg:px-64">
       {/* Render the Merch component */}
       <Merch />
     </section>

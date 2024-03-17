@@ -459,6 +459,36 @@ export interface ApiMerchMerch extends Schema.CollectionType {
   };
 }
 
+export interface ApiVerifyVerify extends Schema.CollectionType {
+  collectionName: 'verifies';
+  info: {
+    singularName: 'verify';
+    pluralName: 'verifies';
+    displayName: 'verify';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    verification: Attribute.Component<'emails.verification'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::verify.verify',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::verify.verify',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -830,7 +860,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     description: '';
     singularName: 'user';
     pluralName: 'users';
-    displayName: 'User';
+    displayName: 'user';
   };
   options: {
     draftAndPublish: false;
@@ -898,6 +928,7 @@ declare module '@strapi/types' {
       'api::claim.claim': ApiClaimClaim;
       'api::event.event': ApiEventEvent;
       'api::merch.merch': ApiMerchMerch;
+      'api::verify.verify': ApiVerifyVerify;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

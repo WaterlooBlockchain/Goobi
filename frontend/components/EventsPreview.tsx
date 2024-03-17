@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Events() {
     return (
-        <section className="py-8">
+        <section className="py-8 px-8 lg:px-64">
       <h2 className="text-3xl font-bold mb-4 text-yellow-400">Events Preview</h2>
       {/* Add preview of events here */}
       <Link href="/events" passHref={true} legacyBehavior={true}>

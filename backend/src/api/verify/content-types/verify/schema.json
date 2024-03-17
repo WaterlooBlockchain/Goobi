@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "verifies",
+  "info": {
+    "singularName": "verify",
+    "pluralName": "verifies",
+    "displayName": "verify",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "verification": {
+      "displayName": "verification",
+      "type": "component",
+      "repeatable": false,
+      "component": "emails.verification"
+    }
+  }
+}

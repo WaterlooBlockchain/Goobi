@@ -14,10 +14,12 @@ const EventCard: React.FC<{ event: any }> = ({ event }) => (
 function Events() {
   const [events, setEvents] = useState([])
   useEffect(() => {
-    async() => {
-      const events = await (await fetch('/api/getMerch')).json();
-      setEvents(events);
-    }
+    async function fetchData() {
+        const response = await fetch('/api/getEvent');
+        const {data} = await response.json();
+        setEvents(data);
+    };
+    fetchData();
   }, []);
   
   return (

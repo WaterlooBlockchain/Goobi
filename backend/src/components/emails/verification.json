@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_emails_verifications",
+  "info": {
+    "displayName": "verified",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "code": {
+      "type": "integer",
+      "private": true
+    }
+  }
+}

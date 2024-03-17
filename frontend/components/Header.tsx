@@ -16,15 +16,7 @@ export default function Header() {
         <Image src={transparentGoose} alt="Mr. Goose" width={100} height={100} />
         <Image src={waterlooBlockchainLogo} alt="Mr. Goose" width={150} height={100} />
       </div>
-      <nav className="flex space-x-4">
-        <Link href="/events" passHref  legacyBehavior>
-          <a className="text-lg lg:text-2xl text-yellow-200 font-bold hover:text-yellow-500 underline">Events</a>
-        </Link>
-        <Link href="/merch" passHref  legacyBehavior>
-          <a className="text-lg lg:text-2xl text-yellow-200 font-bold  hover:text-yellow-500 underline">Merch</a>
-        </Link>
         <WalletMultiButtonDynamic />
-      </nav>
     </header>
   )
 }
