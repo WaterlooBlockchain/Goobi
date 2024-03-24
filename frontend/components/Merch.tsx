@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const ProductCard: React.FC<{ product: any }> = ({ product }) => (
   <div className="border bg-white border-gray-200 p-4 rounded-md">
-    <img src={`https://mr-goose-447tw.ondigitalocean.app/${product.image.data.attributes.url}`} alt={product.name} className="w-full h-32 object-cover mb-2" />
+    <img src={`${product.image.data.attributes.url}`} alt={product.name} className="w-full h-32 object-cover mb-2" />
     <h3 className="text-lg font-bold">{product.name}</h3>
     <p className="text-gray-600">{product.cost} $MRGOOSE</p>
   </div>

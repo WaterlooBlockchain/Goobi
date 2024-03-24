@@ -41,6 +41,11 @@ export default factories.createCoreService('api::verify.verify', ({ strapi }) =>
     // Create JSON Web Token to use to verify code with later
     const token = jwt.sign({ email, code }, 'your_secret_key', { expiresIn: '10m' });
 
+    // const entry = await strapi.entityService.create('api::verify.verify', {
+    //   data: {
+    //     code: code
+    //   }
+    // });
     return ctx.send({ message: 'Verification code sent', token });
   },
 
