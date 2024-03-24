@@ -5,6 +5,7 @@ import Email from './Email';
 import gr1 from '../public/gradient1.png';
 import gr2 from '../public/gradient2.png';
 import gr3 from '../public/gradient3.png';
+import gr4 from '../public/gradient4.png';
 
 
 export default function Hero() {

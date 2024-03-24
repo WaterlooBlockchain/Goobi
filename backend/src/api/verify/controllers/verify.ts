@@ -6,7 +6,7 @@ export default factories.createCoreService('api::verify.verify', ({ strapi }) =>
 
   async send(ctx: any) {
     const { email } = ctx.request.query;
-    const uWaterlooRegex = new RegExp(/^[a-zA-Z0-9_.]+@uwaterloo.ca$/i);
+    const uWaterlooRegex = new RegExp(/^[a-zA-Z0-9\_\.]+\@uwaterloo\.ca$/i);
     if (!uWaterlooRegex.test(email)) {
       return ctx.badRequest('Invalid email');
     }
